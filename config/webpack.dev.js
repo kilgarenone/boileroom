@@ -1,6 +1,5 @@
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
 
 const settings = require("./webpack.settings");
 
@@ -10,12 +9,13 @@ module.exports = {
     filename: "[name].js",
     path: settings.outputPath,
     chunkFilename: "[name].js",
-    publicPath: "/"
+    publicPath: "/",
   },
   // Enable sourcemaps for debugging webpack's output.
-  devtool: "cheap-module-eval-source-map",
+  devtool: "inline-cheap-module-source-map",
   devServer: {
-    clientLogLevel: "silent",
+    quiet: true,
+    clientLogLevel: "error",
     contentBase: settings.outputPath,
     historyApiFallback: true,
     port: 8008,
@@ -24,14 +24,15 @@ module.exports = {
     watchContentBase: true, // watch files served from contentbase
     watchOptions: { ignored: /node_modules/ },
     headers: {
-      "Access-Control-Allow-Origin": "*"
-    }
+      "Access-Control-Allow-Origin": "*",
+    },
   },
   performance: {
     hints: "warning",
     maxAssetSize: 470000,
     maxEntrypointSize: 8500000,
-    assetFilter: assetFilename => assetFilename.endsWith(".css") || assetFilename.endsWith(".js")
+    assetFilter: (assetFilename) =>
+      assetFilename.endsWith(".css") || assetFilename.endsWith(".js"),
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
@@ -39,21 +40,14 @@ module.exports = {
     // style and scripts files for us
     new HtmlWebpackPlugin({
       template: settings.templatePath, // use our own template!,
-      filename: "index.html"
-    })
-  ].concat(
-    process.env.BROWSER_SYNC
-      ? new BrowserSyncPlugin({
-          host: "localhost",
-          port: 3000,
-          proxy: "http://localhost:8080/"
-        })
-      : []
-  ),
+      filename: "index.html",
+    }),
+  ],
   module: {
     rules: [
       // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
       { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
+      // Process .js and .jsx files
       {
         test: /\.(js|jsx)$/,
         exclude: settings.babelLoaderConfig.exclude,
@@ -62,19 +56,20 @@ module.exports = {
           options: {
             cacheDirectory: true,
             plugins: [
+              "@babel/plugin-transform-react-jsx-source",
               [
                 "@babel/plugin-transform-react-jsx",
                 {
-                  pragma: "h"
-                }
+                  pragma: "h",
+                },
               ],
               "@babel/proposal-class-properties",
-              "@babel/plugin-syntax-dynamic-import",
-              "module:fast-async"
-            ]
-          }
-        }
+              "module:fast-async",
+            ],
+          },
+        },
       },
+      // Process all .scss files
       {
         test: /\.scss$/,
         use: [
@@ -83,21 +78,23 @@ module.exports = {
             loader: "css-loader",
             options: {
               sourceMap: true,
-              modules: { localIdentName: "[name]__[local]" } // try add [path] too
-            }
+              importLoaders: 1,
+              modules: { localIdentName: "[name]__[local]" }, // try add [path] too
+            },
           },
-          "sass-loader"
-        ]
+          "sass-loader",
+        ],
       },
       // IMAGE loader
       {
         test: /\.(png|jpe?g|gif|webp|svg)$/i,
-        use: "file-loader"
+        use: "file-loader",
       },
+      // Process .css files 
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"]
-      }
-    ]
-  }
+        use: ["style-loader", "css-loader"],
+      },
+    ],
+  },
 };
