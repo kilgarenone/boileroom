@@ -1,8 +1,5 @@
 import { h, render } from "preact";
-// import { Provider } from "unistore/preact";
 import { App } from "./components/App";
-// import store from "./redux/store";
-// import "./css/index.scss";
 
 let root;
 

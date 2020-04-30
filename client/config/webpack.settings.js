@@ -4,14 +4,13 @@ module.exports = {
   root: path.resolve(__dirname, "../"),
   outputPath: path.resolve(__dirname, "../dist"),
   srcPath: path.resolve(__dirname, "../src"),
-  entryPath: path.resolve(__dirname, "../src/index.jsx"),
+  entryPath: path.resolve(__dirname, "../src/index.js"),
   templatePath: path.resolve(__dirname, "../src/index.html"),
-  envPath: path.resolve(__dirname, "../.env."),
+  envPath: path.resolve(__dirname, "../.env"),
   jsFolder: "js",
   imagesFolder: "img",
   fontsFolder: "fonts",
   babelLoaderConfig: {
-    exclude: [/(node_modules|bower_components)/]
-  }
-  // cssFolder: "css",
+    exclude: [/(node_modules|bower_components)/],
+  },
 };
