@@ -11,11 +11,11 @@ module.exports = {
     "plugin:react/recommended",
   ],
   rules: {
-     "no-unused-vars": [
+    "no-unused-vars": [
       "error",
       { varsIgnorePattern: "^h$" }, // allow stuffs (prevState => ({})) and import h from 'preact'
     ],
-  }
+  },
   env: {
     browser: true,
     es6: true,

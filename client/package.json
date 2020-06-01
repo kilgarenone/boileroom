@@ -70,7 +70,7 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "fast-async": "^6.3.8",
+    "fast-async": "^7.0.6",
     "preact": "^10.4.0"
   }
 }
