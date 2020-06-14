@@ -7,8 +7,9 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server",
     "build": "cross-env NODE_ENV=production node_modules/.bin/webpack",
+    "test-build": "cross-env NODE_ENV=production TEST_RUN=true node_modules/.bin/webpack && npm run serve",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "serve dist"
+    "serve": "ws --spa index.html --directory dist --port 5000 --hostname localhost"
   },
   "browserslist": {
     "defaults": [
@@ -49,6 +50,7 @@
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.2.0",
     "img-loader": "^3.0.1",
+    "local-web-server": "^4.2.1",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.13.0",
     "postcss-loader": "^3.0.0",
@@ -56,7 +58,6 @@
     "progress-bar-webpack-plugin": "^2.1.0",
     "sass-loader": "^8.0.1",
     "script-ext-html-webpack-plugin": "^2.1.4",
-    "serve": "^11.3.0",
     "source-map-loader": "^0.2.4",
     "style-loader": "^1.1.2",
     "svg-url-loader": "^5.0.0",

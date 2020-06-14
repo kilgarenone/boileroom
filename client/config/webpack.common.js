@@ -3,7 +3,11 @@ const Dotenv = require("dotenv-webpack");
 
 const settings = require("./webpack.settings");
 
-const IS_PRODUCTION = process.env.NODE_ENV === "production";
+let envFileName = "";
+
+if (process.env.TEST_RUN || process.env.NODE_ENV === "development") {
+  envFileName = ".development";
+}
 // Understanding the path.resolve traversing.
 // Path.resolve build absolute path from right to left arguments,
 // starting from the current directory where its run, in this case of 'webpack.common.js',
@@ -31,9 +35,7 @@ module.exports = {
   },
   plugins: [
     new Dotenv({
-      path: `${settings.envPath}${
-        IS_PRODUCTION ? "" : `.${process.env.NODE_ENV}`
-      }`,
+      path: `${settings.envPath}${envFileName}`,
     }),
     new ProgressBarPlugin(),
   ],
