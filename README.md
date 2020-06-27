@@ -1,2 +1,1 @@
-# Non-opinionated boilerplate for preact/webpack/babel. 
-All the essential plumbing for delivering good bundles at your mildest dream.
+All the essential plumbings to deliver good bundles for your mildest dream.
