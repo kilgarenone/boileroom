@@ -4,9 +4,23 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>boileroom</title>
+    <title>Differential serving scripts</title>
+    <% if (htmlWebpackPlugin.options.mode === 'production') { %>
+    <script>
+      $loadjs(<%= JSON.stringify(htmlWebpackPlugin.options.modernScripts || {}) %>,<%= JSON.stringify(htmlWebpackPlugin.options.legacyScripts || {}) %>)
+      function $loadjs(srcs,fallbacks,s) {
+        srcs.forEach(function(src, i) {
+          s = document.createElement('script')
+          if ('noModule' in s) s.type = 'module', s.src = src
+          else s.defer = true, s.src = fallbacks[i]
+          document.head.appendChild(s)
+        })
+      }
+    </script>
+    <style>
+      <%= compilation.assets[htmlWebpackPlugin.files.css.filter(e => /app/.test(e))[0].substr(htmlWebpackPlugin.files.publicPath.length)].source() %>
+    </style>
+    <% } %>
   </head>
-  <body>
-    <div id="app"></div>
-  </body>
+  <body></body>
 </html>

@@ -7,7 +7,13 @@ async function apiCall() {
   console.log("API endpoint response:", response);
 }
 
-// eslint-disable-next-line import/prefer-default-export
 export function App() {
-  return <button onClick={apiCall}>Call an endpoint from server</button>;
+  return (
+    <div class="app">
+      <h1>
+        hello <span>world</span>
+      </h1>
+      <button onClick={apiCall}>Call an endpoint from server</button>
+    </div>
+  );
 }
