@@ -4,7 +4,7 @@ This is the companion github repo for the [How to build your first SaaS](https:/
 
 A minimal foundation upon which you can putter your first full-stack application.
 
-"**Why not just `create-react-app` though?**" CRA is great for one-off prototype or "move fast and break things" kind of mindset and environment. But we are building a garden we intend to _putter_ while comporting ourselves with the greatest freedom and rectitude.
+"**Why not just `create-react-app` etc. though?**" They are great for one-off prototype or "move fast and break things" kind of environment. But we are building a garden we intend to _putter_ while comporting ourselves with the greatest freedom and rectitude possible.
 
 ## Features
 
