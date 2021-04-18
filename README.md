@@ -4,7 +4,7 @@ This is the companion github repo for the [How to build your first SaaS](https:/
 
 A minimal foundation upon which you can putter your first full-stack application.
 
-"**Why not just `create-react-app` etc. though?**" They are great for one-off prototype or "move fast and break things" kind of environment. But we are building a garden we intend to _putter_ while comporting ourselves with the greatest freedom and rectitude possible.
+"**Why not just `create-react-app` etc. though?**" Although they are great for one-off prototype and to "move fast and break things", they have hidden cost in terms of complexity and obfuscation, both of which limit user's sense of control, personal responsiblity, and understanding as long as they stay within the happy paths. But we are building a garden we intend to _putter_ while comporting ourselves with the greatest freedom and rectitude possible, rather than with a false sense of security.
 
 ## Features
 
