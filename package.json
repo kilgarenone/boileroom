@@ -10,7 +10,8 @@
     "lint:css": "stylelint '**/*.{scss,css}' '!client/dist/**/*'",
     "format": "prettier --write '**/*.{js,json}' '!client/dist/**/*'",
     "dev": "npm-run-all --parallel server client",
-    "test": "npm run lint"
+    "test": "npm run lint",
+    "postinstall": "(cd client && npm install); (cd server && npm install)"
   },
   "keywords": [],
   "author": "",
