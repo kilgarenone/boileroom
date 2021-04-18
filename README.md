@@ -2,16 +2,21 @@ This is the companion github repo for the [How to build your first SaaS](https:/
 
 ## Description
 
-A minimal foundation upon which you can putter your first full-stack application.
+A minimal foundation upon which you can putter your first full-stack application. :rowboat:
 
 ## Features
 
-- Server and client are already setup
-- Lighter footprint than CRA on your machine
-- Preact(alternatively, I suggest [Sinuous](https://sinuous.dev/) which doesn't use virtual dom)
-- Supports IE11
-- Serves ES modules(less code shipped) to modern browsers
-- Use the web platform as much as possible(e.g. Not using SCSS. Leverage standard CSS with PostCSS)
+:revolving_hearts: Server and client are already setup
+
+:blossom: Lighter footprint than CRA on your machine
+
+:christmas_tree: Preact(alternatively, I suggest [Sinuous](https://sinuous.dev/) which doesn't use virtual dom)
+
+:vhs: Supports IE11
+
+:golf: Serves ES modules(less code shipped) to modern browsers
+
+:saxophone: Use the web platform as much as possible(e.g. Not using SCSS. Leverage standard CSS with PostCSS)
 
 ## Development
 
@@ -41,10 +46,12 @@ npm run dev
 
 - **Client** will be at <u>**localhost:8008**</u>
 - **Server** is at <u>**localhost:4000**</u>
+- 
+:sunrise_over_mountains:
 
 ## FAQ
 
-"**Why not just `create-react-app` etc. though?**"
+"**Why not just use `create-react-app` etc. though?**"
 
 Although they are great for one-off prototype and to "move fast and break things", they have hidden cost in terms of complexity and obfuscation, both of which limit user's sense of control, personal responsiblity, and understanding as long as they stay within the happy paths.
 
