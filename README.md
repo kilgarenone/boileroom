@@ -46,7 +46,7 @@ npm run dev
 
 - **Client** will be at <u>**localhost:8008**</u>
 - **Server** is at <u>**localhost:4000**</u>
-- 
+
 :sunrise_over_mountains:
 
 ## FAQ
