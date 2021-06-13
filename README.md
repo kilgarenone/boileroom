@@ -55,4 +55,4 @@ npm run dev
 
 Although they are great for one-off prototype and to "move fast and break things", they have hidden cost in terms of complexity and obfuscation, both of which limit user's sense of control, personal responsiblity, and understanding as long as they stay within the happy paths.
 
-But we are building a garden that we intend to _putter_ while comporting ourselves with the greatest freedom and rectitude possible, rather than with a false sense of security.
+But we are building a garden that we intend to _putter_ while comporting ourselves with the greatest autonomy and rectitude possible, rather than with a false sense of security.
